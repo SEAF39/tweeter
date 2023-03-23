@@ -1,3 +1,5 @@
+/* layout.css */
+
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
@@ -23,3 +25,17 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ /* add an external fonts
+  */
+  
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+}
+
+
+
