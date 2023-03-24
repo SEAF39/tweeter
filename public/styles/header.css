@@ -2,8 +2,8 @@
 
 /* Define the top-header class with new feature */
 .top-header {
-  height: 500px;
-  width: 100%;
+  height: 400px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;

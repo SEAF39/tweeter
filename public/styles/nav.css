@@ -1,29 +1,4 @@
 /* nav.css */
-
-nav {
-  top: 0;
-  height: 120px;
-  width: 100%;
-  background-color: #4056A1;
-  color: #FFFFFF;
-  padding: 0 1.5em;
-}
-
-nav .logo {
-  font-family: 'Bungee', sans-serif;
-  font-size: 2.25em;
-}
-
-
-.nav-right {
-  float: right;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
 nav {
   height: 120px;
   width: 100vw;
@@ -35,21 +10,33 @@ nav {
   align-items: center;
 }
 
-nav span {
+nav .logo-page {
   font-family: 'Bungee', sans-serif;
+  font-size: 2.50em;
 }
 
 .nav-right {
+  float: right;
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1.5em;
-  flex-direction: row-reverse; /* add this line */
 }
 
 nav .right-nav:hover {
   font-size: 1.1em;
   cursor: pointer;
 }
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+}
+
+nav .new {
+  font-size: 1.25em;
+}
+
+
 /* Define the animation with a name */
 @keyframes MoveUpDown {
   from, to {
