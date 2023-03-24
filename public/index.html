@@ -50,7 +50,27 @@
     
     
     <!-- Page-specific (main) content here -->
-    <main class="container">  
+    <main class="container">
+      <section class="tweet-new">
+        <h2>Compose Tweet</h2>
+        <form action="/tweet/" method="POST">
+          
+          <div class="main-form">
+            <label for="tweet-text"><b>What are you humming about?</b></label>
+            <textarea name="text" id="tweet-text"></textarea>
+          </div>
+
+          <div class="bottom-form">
+            <button id="tweet-button" type="submit">Submit Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+
+        <section class="tweeter">
+        </section>
+
+
     </main>
   </body>
 </html>
