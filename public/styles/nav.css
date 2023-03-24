@@ -57,3 +57,7 @@ nav span {
   color: #FFFFFF;
   margin-top: 2px;
 }
+
+.parent-container {
+  padding-top: 120px;
+}
