@@ -1,11 +1,20 @@
 /* header.css */
-header {
+
+/* Define the top-header class with new feature */
+.top-header {
+  height: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 50px - 400px);
-  background-color: #921010;
-  background-size: cover;
-  background-position: center center;
+  background-color: #352709;
+  color: #f4e9e9;
+  background-image: url("../images/fabric-light.png");
+  margin-top: 60px;
+  text-align: center;
+
+  /* New feature: add a border with rounded corners */
+  border: 2px solid #f4e9e9;
+  border-radius: 10px;
 }
