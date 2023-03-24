@@ -1,31 +1,29 @@
 /* nav.css */
 
 nav {
+  top: 0;
   height: 120px;
-  width: 100vw;
+  width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 0 1.5em;
 }
 
-nav span {
+nav .logo {
   font-family: 'Bungee', sans-serif;
+  font-size: 2.25em;
 }
+
 
 .nav-right {
   float: right;
-  margin: 0 1.5em;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.nav-right span {
-  margin-right: 0.5em;
-}
 
-.nav-right i {
-  font-size: 1.5em;
-}
+
 nav {
   height: 120px;
   width: 100vw;
@@ -48,8 +46,29 @@ nav span {
   flex-direction: row-reverse; /* add this line */
 }
 
-.nav-right span {
-  font-size: 1.2em;
+nav .right-nav:hover {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+/* Define the animation with a name */
+@keyframes MoveUpDown {
+  from, to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Apply the animation to child <i> elements of <nav> */
+nav i {
+  color: rgb(243, 16, 16);
+  animation: MoveUpDown 2s linear infinite;
+}
+
+/* Apply the animation to elements with the .bounce class */
+.bounce {
+  animation: MoveUpDown 1s linear infinite;
 }
 
 .fa-angle-double-down {
@@ -58,6 +77,4 @@ nav span {
   margin-top: 2px;
 }
 
-.parent-container {
-  padding-top: 120px;
-}
+
