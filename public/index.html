@@ -22,13 +22,24 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/2fff5f5ee5.js" crossorigin="anonymous"></script>
+
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js" integrity="sha512-RlGrSmkje9EE/FXpJKWf0fvOlg4UULy/blvNsviBX9LFwMj/uewXVoanRbxTIRDXy/0A3fBQppTmJ/qOboJzmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://kit.fontawesome.com/2fff5f5ee5.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js"></script>
+
   
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
 
   </head>
 
@@ -73,8 +84,23 @@
 
     <section id="tweets-container">
       <!-- Here we will dynamically add tweets using JavaScript -->
+
+      <p class="tweet-time">${timeAgo}</p>
+      <time class="timeago" datetime="${tweet.created_at}">${tweet.created_at}</time>
+      <p>Posted 2 hours ago</p>
+      <p id="time-ago"></p>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+      <script>
+        const timestamp = new Date(Date.now() - 2 * 60 * 60 * 1000); // 2 hours ago
+        const timeagoInstance = timeago(); // initialize the timeago library
+        document.getElementById("time-ago").textContent = timeagoInstance.format(timestamp);
+
+        $('time.timeago').timeago();
+        
+
+      </script>
     </section>
-     
+    
     </main>
   </body>
 </html>
