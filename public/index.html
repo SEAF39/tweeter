@@ -1,26 +1,23 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
   
-    
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
   
-    
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;600&ital@0;1&display=swap" />
-
-    
+  
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,28 +27,26 @@
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
  </head>
 
-<body>
+  <body>
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo-page" >tweeter</span>
       <div class="right-nav">
         <span class="new" ><b>Write</b> a new tweet</span>
-        <center><i class="fas fa-angle-double-down"></i></center></div>
+        <center><i class="fas fa-angle-double-down"></i></center>
       </div>
     </nav>
-
-  
+    <div class="responsive-container">
     <!-- top-header section -->
-      <header class="top-header">
+    <header class="top-header">
       <div class="image">
          <img src="/images/profile-hex.png">
       </div>
       <div class="header-text">
          <h2>SEAF</h2>
       </div>
-      </header>
-    
-    
+    </header>
+
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
@@ -67,10 +62,37 @@
           </div>
         </form>
       </section>
-      <section class="tweeter">
+
+          <!-- Page-specific (tweet) content here -->
+
+      <section class="tweet-container">
+
+        <article class="tweet">
+          <header>
+            <div class="tweet-author">
+              <img src="profile-image.jpg" alt="Profile picture">
+              <div class="tweet-info">
+                <h2 class="author-name">John Doe</h2>
+                <p class="author-handle">@johndoe</p>
+              </div>
+            </div>
+            <div class="tweet-time">
+              <time datetime="2023-03-27T12:34:56">1 hour ago</time>
+            </div>
+          </header>
+          <div class="tweet-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel convallis quam, vel efficitur urna.</p>
+          </div>
+          <footer>
+            <div class="tweet-actions">
+              <a href="#" class="like-action"><i class="fas fa-heart"></i> </a>
+              <a href="#" class="retweet-action"><i class="fas fa-retweet"></i> </a>
+              <a href="#" class="flag-action"><i class="fas fa-flag"></i></a>
+            </div>
+          </footer>
+        </article>
+
       </section>
     </main>
-
-    
   </body>
 </html>
