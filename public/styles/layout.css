@@ -29,25 +29,29 @@ body {
  /* add an external fonts
   */
 
-  main {
-    margin-left: 30%;
-    margin-right: 15%;
-    display: flex;
-    flex-direction: column;
-  }
-
   
+/* Set the font family for the entire body of the HTML document */
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* Set the font family for all span elements within the nav element */
 nav span {
   font-family: 'Bungee', sans-serif;
 }
 
+/* Set the margins and display style for the main content section of the HTML document */
 main {
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
   flex-direction: column;
+}
+
+/* Responsive container with 5em top margin and flexbox layout */
+.responsive-container {
+  margin-top: 5em;
+  margin-left: 2em;
+  display: flex;
+  flex-direction: row;
 }
