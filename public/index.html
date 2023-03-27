@@ -7,7 +7,6 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
   
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;600&ital@0;1&display=swap" />
@@ -21,11 +20,15 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2fff5f5ee5.js" crossorigin="anonymous"></script>
+    
   
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
- </head>
+    <script type="text/javascript" src="/scripts/jquery.timeago.js"></script>
+
+  </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
@@ -37,6 +40,7 @@
       </div>
     </nav>
     <div class="responsive-container">
+
     <!-- top-header section -->
     <header class="top-header">
       <div class="image">
@@ -51,7 +55,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="POST">
+        <form id="new-tweet-form">
           <div class="form-top">
             <label for="tweet-text" class="sr-only">What are you humming about?</label>
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
@@ -63,36 +67,12 @@
         </form>
       </section>
 
-          <!-- Page-specific (tweet) content here -->
+    <!-- tweet-container -->
 
-      <section class="tweet-container">
-
-        <article class="tweet">
-          <header>
-            <div class="tweet-author">
-              <img src="profile-image.jpg" alt="Profile picture">
-              <div class="tweet-info">
-                <h2 class="author-name">John Doe</h2>
-                <p class="author-handle">@johndoe</p>
-              </div>
-            </div>
-            <div class="tweet-time">
-              <time datetime="2023-03-27T12:34:56">1 hour ago</time>
-            </div>
-          </header>
-          <div class="tweet-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel convallis quam, vel efficitur urna.</p>
-          </div>
-          <footer>
-            <div class="tweet-actions">
-              <a href="#" class="like-action"><i class="fas fa-heart"></i> </a>
-              <a href="#" class="retweet-action"><i class="fas fa-retweet"></i> </a>
-              <a href="#" class="flag-action"><i class="fas fa-flag"></i></a>
-            </div>
-          </footer>
-        </article>
-
-      </section>
+    <section id="tweets-container">
+      <!-- Here we will dynamically add tweets using JavaScript -->
+    </section>
+     
     </main>
   </body>
 </html>
