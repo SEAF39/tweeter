@@ -20,3 +20,7 @@ var timeAgo = jQuery.timeago(date);
 const tweetDate = new Date(Date.now() - 1000 * 60 * 5); // Example: 5 minutes ago
 const time-Ago = jQuery.timeago(tweetDate);
 console.log(time-Ago); // Output: "5 minutes ago"
+
+
+
+

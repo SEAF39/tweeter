@@ -112,7 +112,3 @@ $('form').on('submit', function(event) {
 
 });
 
-
-
-
-
