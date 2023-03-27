@@ -2,7 +2,7 @@
 
 /* Define the top-header class with new feature */
 .top-header {
-  height: 380px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
