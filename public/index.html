@@ -27,6 +27,7 @@
   
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
  </head>
 
 <body>
@@ -56,21 +57,20 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets/" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <div class="form-top">
+            <label for="tweet-text" class="sr-only">What are you humming about?</label>
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          </div>
           <div>
             <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output name="counter" class="counter counterUnderLimit" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      
       <section class="tweeter">
       </section>
     </main>
+
     
-
-
-    </main>
   </body>
 </html>
