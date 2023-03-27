@@ -7,65 +7,98 @@
 
 
 // Create tweet HTML element from a tweet object
-const createTweetElement = function(tweet) {
-  const $tweet = $(`
-    <article class="tweet">
-      <header>
-        <div class="tweet-author">
-          <img src="${tweet.user.avatars}" alt="Profile picture">
-          <div class="tweet-info">
-            <h2 class="author-name">${tweet.user.name}</h2>
-            <p class="author-handle">${tweet.user.handle}</p>
+/* client.js */
+
+$(document).ready(function() {
+
+  // Function to create a tweet HTML element from a tweet object
+  const createTweetElement = function(tweet) {
+    const $tweet = $(`
+      <article class="tweet">
+        <header>
+          <div class="tweet-author">
+            <img src="${tweet.user.avatars}" alt="Profile picture">
+            <div class="tweet-info">
+              <h2 class="author-name">${tweet.user.name}</h2>
+              <p class="author-handle">${tweet.user.handle}</p>
+            </div>
           </div>
+          <div class="tweet-time">
+            <time datetime="${tweet.created_at}">${timeago.format(tweet.created_at)}</time>
+          </div>
+        </header>
+        <div class="tweet-content">
+          <p>${escape(tweet.content.text)}</p>
         </div>
-        <div class="tweet-time">
-          <time datetime="${tweet.created_at}">${timeago.format(tweet.created_at)}</time>
-        </div>
-      </header>
-      <div class="tweet-content">
-        <p>${escape(tweet.content.text)}</p>
-      </div>
-      <footer>
-        <div class="tweet-actions">
-          <a href="#" class="like-action"><i class="fas fa-heart"></i> </a>
-          <a href="#" class="retweet-action"><i class="fas fa-retweet"></i> </a>
-          <a href="#" class="flag-action"><i class="fas fa-flag"></i></a>
-        </div>
-      </footer>
-    </article>
-  `);
+        <footer>
+          <div class="tweet-actions">
+            <a href="#" class="like-action"><i class="fas fa-heart"></i></a>
+            <a href="#" class="retweet-action"><i class="fas fa-retweet"></i></a>
+            <a href="#" class="flag-action"><i class="fas fa-flag"></i></a>
+          </div>
+        </footer>
+      </article>
+    `);
 
-  return $tweet;
-};
+    return $tweet;
+  };
 
-// function to render tweets from an array of tweet data
-const renderTweets = function(tweets) {
-  const $tweetsContainer = $('#tweets-container');
-  
-  $tweetsContainer.empty(); // clear the container first
-  
-  tweets.forEach(tweet => {
-    const $tweet = createTweetElement(tweet);
-    $tweetsContainer.append($tweet);
-  });
-};
-  
+  // Function to render tweets from an array of tweet data
+  const renderTweets = function(tweets) {
+    const $tweetsContainer = $('#tweets-container');
+    $tweetsContainer.empty(); // clear the container first
+    tweets.forEach(tweet => {
+      const $tweet = createTweetElement(tweet);
+      $tweetsContainer.append($tweet);
+    });
+  };
 
-// add event listener for form submit
+  // Function to load tweets from the server and display them on the page
+  const loadTweets = function() {
+    $.ajax({
+      method: 'GET',
+      url: '/tweets',
+      success: function(response) {
+        console.log('GET request successful:', response);
+        renderTweets(response);
+      },
+      error: function(error) {
+        console.log('GET request failed:', error);
+      }
+    });
+  };
+
+  /// Add event listener for form submission
 $('form').on('submit', function(event) {
   event.preventDefault(); // prevent default form submission behavior
-  
-  // serialize form data into query string
-  var formData = $(this).serialize();
-  
-  // send POST request to server with serialized form data
+
+  // Get the tweet text from the form
+  const tweetText = $(this).find('textarea[name="text"]').val();
+
+  // Check if the tweet text is empty or exceeds the maximum character limit
+  if (!tweetText) {
+    // Show an error message if the tweet text is empty
+    $('#error-message').text('Error! No characters were detected in your tweet.');
+    return;
+  } else if (tweetText.length > 140) {
+    // Show an error message if the tweet text exceeds the maximum character limit
+    $('#error-message').text('Error! Your tweet is too long.');
+    return;
+  } else {
+    // Clear any existing error messages
+    $('#error-message').text('');
+  }
+
+  // Send POST request to server with serialized form data
   $.ajax({
     url: '/tweets',
     method: 'POST',
-    data: formData,
+    data: $(this).serialize(),
     success: function() {
       console.log('Tweet posted successfully');
-      // refresh the tweet list to show the new tweet
+      // Clear the tweet text after successful submission
+      $(this).find('textarea[name="text"]').val('');
+      // Refresh the tweet list to show the new tweet
       loadTweets();
     },
     error: function(error) {
@@ -74,42 +107,12 @@ $('form').on('submit', function(event) {
   });
 });
 
-// function to load tweets from the server and display them on the page
-function loadTweets() {
-  $.ajax({
-    method: 'GET',
-    url: '/tweets',
-    success: function(response) {
-      console.log('GET request successful:', response);
-      renderTweets(response);
-    },
-    error: function(error) {
-      console.log('GET request failed:', error);
-    }
-  });
-}
-
-// load initial tweets when the page loads
-$(document).ready(function() {
+  // Load initial tweets when the page loads
   loadTweets();
 
-  // Add event listener for form submission
-  $('#new-tweet-form').on('submit', function(event) {
-    event.preventDefault();
-
-    // Serialize the form data
-    const serializedData = $(this).serialize();
-
-    // Send the AJAX POST request
-    $.post('/tweets', serializedData)
-      .then(function(responseData) {
-        console.log(responseData);
-        loadTweets();
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  });
 });
+
+
+
 
 
