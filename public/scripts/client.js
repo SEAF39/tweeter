@@ -50,3 +50,64 @@ const renderTweets = function(tweets) {
   });
 };
   
+
+// add event listener for form submit
+$('form').on('submit', function(event) {
+  event.preventDefault(); // prevent default form submission behavior
+  
+  // serialize form data into query string
+  var formData = $(this).serialize();
+  
+  // send POST request to server with serialized form data
+  $.ajax({
+    url: '/tweets',
+    method: 'POST',
+    data: formData,
+    success: function() {
+      console.log('Tweet posted successfully');
+      // refresh the tweet list to show the new tweet
+      loadTweets();
+    },
+    error: function(error) {
+      console.error('Error posting tweet:', error);
+    }
+  });
+});
+
+// function to load tweets from the server and display them on the page
+function loadTweets() {
+  $.ajax({
+    method: 'GET',
+    url: '/tweets',
+    success: function(response) {
+      console.log('GET request successful:', response);
+      renderTweets(response);
+    },
+    error: function(error) {
+      console.log('GET request failed:', error);
+    }
+  });
+}
+
+// load initial tweets when the page loads
+$(document).ready(function() {
+  loadTweets();
+
+  // Add event listener for form submission
+  $('#new-tweet-form').on('submit', function(event) {
+    event.preventDefault();
+
+    // Serialize the form data
+    const serializedData = $(this).serialize();
+
+    // Send the AJAX POST request
+    $.post('/tweets', serializedData)
+      .then(function(responseData) {
+        console.log(responseData);
+        loadTweets();
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+});
