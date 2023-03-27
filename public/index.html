@@ -35,12 +35,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/timeago.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+
   
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
- 
-
+    <script type="text/javascript" src="/scripts/composer-char-counter.js">
+    </script>
+    
   </head>
 
   <body>
@@ -78,28 +80,54 @@
             <output name="counter" class="counter counterUnderLimit" for="tweet-text">140</output>
           </div>
         </form>
+
+        <script>
+          // Get the form and input elements
+          const tweetForm = document.getElementById("new-tweet-form");
+          const tweetContent = document.getElementById("tweet-text");
+    
+          // Add event listener for form submission
+          tweetForm.addEventListener("submit", function(event) {
+            // Prevent the form from submitting automatically
+            event.preventDefault();
+    
+            // Validate the tweet content
+            const tweet = tweetContent.value.trim();
+            if (tweet.length === 0) {
+              // Show an error message if the tweet content is not present
+              alert("Error! Please enter a tweet.");
+              return;
+            } else if (tweet.length > 140) {
+              // Show an error message if the tweet content is too long
+              alert("Error! Your tweet is too long.");
+              return;
+            }
+    
+            // If validation passes, submit the form
+            alert("Tweet submitted successfully!");
+            tweetForm.submit();
+          });
+        </script>
       </section>
 
     <!-- tweet-container -->
-
     <section id="tweets-container">
       <!-- Here we will dynamically add tweets using JavaScript -->
-
       <p class="tweet-time">${timeAgo}</p>
       <time class="timeago" datetime="${tweet.created_at}">${tweet.created_at}</time>
       <p>Posted 2 hours ago</p>
       <p id="time-ago"></p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+      
       <script>
         const timestamp = new Date(Date.now() - 2 * 60 * 60 * 1000); // 2 hours ago
         const timeagoInstance = timeago(); // initialize the timeago library
         document.getElementById("time-ago").textContent = timeagoInstance.format(timestamp);
 
         $('time.timeago').timeago();
-        
+
       </script>
-    </section>
     
+     </section>
     </main>
   </body>
 </html>
