@@ -1,3 +1,6 @@
+/* new-tweet.css */
+
+/* Styles for the container of a new tweet */
 .new-tweet {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -5,36 +8,44 @@
   margin-bottom: 20px;
 }
 
+/* Styles for the heading of the new tweet */
 .new-tweet h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
+/* Styles for the form inside the new tweet container */
 .new-tweet form {
   display: flex;
   flex-direction: column;
 }
 
+/* Styles for the labels inside the new tweet form */
 .new-tweet label {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Styles for the text area where the user enters the tweet */
 .new-tweet textarea {
   height: 100px;
+  width: 100%;
   margin-bottom: 10px;
   padding: 5px;
   font-size: 18px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  resize: vertical;
 }
 
+/* Styles for the div that contains the character count and submit button */
 .new-tweet div {
   display: flex;
   justify-content: space-between;
 }
 
+/* Styles for the submit button inside the new tweet form */
 .new-tweet button {
   background-color: #032634;
   color: #fff;
@@ -46,12 +57,29 @@
   cursor: pointer;
 }
 
+/* Styles for the submit button when the user hovers over it */
 .new-tweet button:hover {
   background-color: #012538;
 }
 
+/* Styles for the character count display beneath the new tweet text area */
 .new-tweet .counter {
-  font-size: 14px;
-  color: #999;
+  font-size: 20px;
+  color: #0c0570;
   margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Styles for the character count display when the character limit has not been exceeded */
+.new-tweet .counter.counterUnderLimit {
+  font-size: 20px;
+  color: #130675;
+  font-weight: bold;
+}
+
+/* Styles for the character count display when the character limit has been exceeded */
+.new-tweet .counter.counterOverLimit {
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
 }
