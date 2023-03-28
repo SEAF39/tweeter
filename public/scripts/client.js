@@ -69,50 +69,55 @@ $(document).ready(function() {
   };
 
  // Add event listener for form submission
-$('form').on('submit', function(event) {
-  event.preventDefault(); // prevent default form submission behavior
+ const $form = $('form');
 
-  // Get the tweet text from the form
-  const tweetText = $(this).find('textarea[name="text"]').val();
-
-  // Check if the tweet text is empty or exceeds the maximum character limit
-  if (!tweetText) {
-    // Show an error message if the tweet text is empty
-    const $errorMessage = $('#error-message');
-    $errorMessage.text('Error! No characters were detected in your tweet.');
-    $errorMessage.slideDown();
-    return;
-  } else if (tweetText.length > 140) {
-    // Show an error message if the tweet text exceeds the maximum character limit
-    const $errorMessage = $('#error-message');
-    $errorMessage.text('Error! Your tweet is too long.');
-    $errorMessage.slideDown();
-    return;
-  } else {
-    // Clear any existing error messages and hide the error element
-    const $errorMessage = $('#error-message');
-    $errorMessage.text('');
-    $errorMessage.slideUp();
-  }
-
-  // Send POST request to server with serialized form data
-  $.ajax({
-    url: '/tweets',
-    method: 'POST',
-    data: $(this).serialize(),
-    success: function() {
-      console.log('Tweet posted successfully');
-      // Clear the tweet text after successful submission
-      $(this).find('textarea[name="text"]').val('');
-      // Refresh the tweet list to show the new tweet
-      loadTweets();
-    },
-    error: function(error) {
-      console.error('Error posting tweet:', error);
-    }
-  });
-});
-
+ $form.on('submit', function(event) {
+   event.preventDefault(); // prevent default form submission behavior
+ 
+   // Get the tweet text from the form
+   const tweetText = $(this).find('textarea[name="text"]').val();
+ 
+   // Check if the tweet text is empty or exceeds the maximum character limit
+   if (!tweetText) {
+     // Show an error message if the tweet text is empty
+     const $errorMessage = $('#error-message');
+     $errorMessage.text('Error! No characters were detected in your tweet.');
+     $errorMessage.slideDown();
+     return;
+   } else if (tweetText.length > 140) {
+     // Show an error message if the tweet text exceeds the maximum character limit
+     const $errorMessage = $('#error-message');
+     $errorMessage.text('Error! Your tweet is too long.');
+     $errorMessage.slideDown();
+     return;
+   } else {
+     // Clear any existing error messages and hide the error element
+     const $errorMessage = $('#error-message');
+     $errorMessage.text('');
+     $errorMessage.slideUp();
+   }
+ 
+   // Store the form object in a variable
+   const $this = $(this);
+ 
+   // Send POST request to server with serialized form data
+   $.ajax({
+     url: '/tweets',
+     method: 'POST',
+     data: $this.serialize(),
+     success: function() {
+       console.log('Tweet posted successfully');
+       // Clear the tweet text after successful submission
+       $this.find('textarea[name="text"]').val('');
+       // Refresh the tweet list to show the new tweet
+       loadTweets();
+     },
+     error: function(error) {
+       console.error('Error posting tweet:', error);
+     }
+   });
+ });
+ 
 
 $(document).ready(function() {
   // Hide the error message element on page load
@@ -147,3 +152,39 @@ $(document).ready(function() {
 
 });
 
+
+// Get the form and tweet content element
+const tweetForm = document.getElementById("new-tweet-form");
+const tweetContent = document.getElementById("tweet-text");
+
+// Add an event listener to the form for submit
+tweetForm.addEventListener('submit', (event) => {
+// Prevent the default form submission behavior
+event.preventDefault();
+
+// If the tweet content is longer than 140 characters, display an error message
+if (tweetContent.value.length > 140) {
+const errorMessage = document.getElementById('error-message');
+errorMessage.innerText = 'Tweet is too long (maximum 140 characters)';
+errorMessage.style.display = 'block';
+}
+
+// Otherwise, get the value of the tweet content
+else {
+const tweetText = tweetContent.value;
+}
+});
+
+
+// Define a function to escape special characters in a string
+const escape = function (str) {
+  // Create a new div element
+  let div = document.createElement("div");
+  // Append the string as a text node to the div
+  div.appendChild(document.createTextNode(str));
+  // Return the HTML of the div, which has special characters escaped
+  return div.innerHTML;
+};
+
+// Use the escape function to create a safe HTML string containing the user's input
+const safeHTML = `<p>${escape(textFromUser)}</p>`;
