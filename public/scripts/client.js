@@ -176,7 +176,7 @@ const tweetText = tweetContent.value;
 });
 
 
-// Define a function to escape special characters in a string
+/* // Define a function to escape special characters in a string
 const escape = function (str) {
   // Create a new div element
   let div = document.createElement("div");
@@ -187,4 +187,4 @@ const escape = function (str) {
 };
 
 // Use the escape function to create a safe HTML string containing the user's input
-const safeHTML = `<p>${escape(textFromUser)}</p>`;
+const safeHTML = `<p>${escape(textFromUser)}</p>`; */
