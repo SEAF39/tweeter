@@ -11,14 +11,15 @@
   
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  
+
+    
+
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&amp;family=Source+Sans+Pro:wght@300;600&amp;ital@0;1&amp;display=swap">
   
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css">
-    <link rel="stylesheet" href="styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css"> 
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css">
@@ -26,7 +27,6 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2fff5f5ee5.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
 
@@ -34,8 +34,6 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js">
     </script>
-    <script src="jquery.js"></script>
-    <script src="jquery.timeago.js"></script>
   </head>
   <body>
 
@@ -59,7 +57,6 @@
       </div>
     </header>
 
-
 <!-- Page-specific (main) content here -->
 <main class="container">
   <div id="error-message"></div>
@@ -77,32 +74,13 @@
     </form>
   </section>
 
-  <!-- tweet-container -->
-  <section id="tweets-container">
-    <!-- Here we will dynamically add tweets using JavaScript -->
-    <time class="timeago" datetime="${tweet.created_at}">${tweet.created_at}</time>
-    <div>${safeHTML}</div>
-
-    
-    <time class="timeago" datetime="${tweet.created_at}">2 hours ago</time>
-    <p id="timeAgo"></p>
-    <script>
-      $(document).ready(function() {
-        $('time.timeago').timeago();
-      });
-    </script>
-
-    <script> 
-
-// assuming tweetText contains the tweet text
-var safeHTML = $("<div>").text(tweetText).html();
-$("#tweets-container").append("<div>" + safeHTML + "</div>");
-
-</script>
-
-
-  </section>
-
-</main>
-</body>
+      <!-- tweet-container -->
+      <section id="tweets-container">
+      </section>
+    </main>
+  </body>
 </html>
+
+
+
+
