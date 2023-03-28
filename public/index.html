@@ -3,49 +3,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <!-- Meta Information -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Tweeter - Home Page</title>
   
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;600&ital@0;1&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&amp;family=Source+Sans+Pro:wght@300;600&amp;ital@0;1&amp;display=swap">
   
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css">
+    <link rel="stylesheet" href="styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="/styles/header.css" type="text/css">
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css">
+    
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js" integrity="sha512-RlGrSmkje9EE/FXpJKWf0fvOlg4UULy/blvNsviBX9LFwMj/uewXVoanRbxTIRDXy/0A3fBQppTmJ/qOboJzmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script src="https://kit.fontawesome.com/2fff5f5ee5.js" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
-    
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/timeago.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
 
-  
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js">
     </script>
-    
+    <script src="jquery.js"></script>
+    <script src="jquery.timeago.js"></script>
   </head>
-
   <body>
+
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo-page" >tweeter</span>
@@ -66,85 +59,50 @@
       </div>
     </header>
 
-    <!-- Page-specific (main) content here -->
+
+<!-- Page-specific (main) content here -->
+<main class="container">
+  <div id="error-message"></div>
+  <section class="new-tweet">
+    <h2>Compose Tweet</h2>
+    <form id="new-tweet-form">
+      <div class="form-top">
+        <label for="tweet-text" class="sr-only">What are you humming about?</label>
+        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+      </div>
+      <div>
+        <button type="submit">Tweet</button>
+        <output name="counter" class="counter counterUnderLimit" for="tweet-text">140</output>
+      </div>
+    </form>
+  </section>
+
+  <!-- tweet-container -->
+  <section id="tweets-container">
+    <!-- Here we will dynamically add tweets using JavaScript -->
+    <time class="timeago" datetime="${tweet.created_at}">${tweet.created_at}</time>
+    <div>${safeHTML}</div>
+
     
-    <main class="container">
-      <div id="error-message"></div>
-
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form id="new-tweet-form">
-          <div class="form-top">
-            <label for="tweet-text" class="sr-only">What are you humming about?</label>
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          </div>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter counterUnderLimit" for="tweet-text">140</output>
-          </div>
-        </form>
-       
-
-
-
-
-
-
-
-        
-
-        <script>
-          // Get the form and input elements
-          const tweetForm = document.getElementById("new-tweet-form");
-          const tweetContent = document.getElementById("tweet-text");
-    
-          // Add event listener for form submission
-          tweetForm.addEventListener("submit", function(event) {
-            // Prevent the form from submitting automatically
-            event.preventDefault();
-    
-            // Validate the tweet content
-            const tweet = tweetContent.value.trim();
-            if (tweet.length === 0) {
-              // Show an error message if the tweet content is not present
-              alert("Error! Please enter a tweet.");
-              return;
-            } else if (tweet.length > 140) {
-              // Show an error message if the tweet content is too long
-              alert("Error! Your tweet is too long.");
-              return;
-            }
-    
-            // If validation passes, submit the form
-            alert("Tweet submitted successfully!");
-            tweetForm.submit();
-          });
-        </script>
-      </section>
-     
-
-    <!-- tweet-container -->
-    <section id="tweets-container">
-      <!-- Here we will dynamically add tweets using JavaScript -->
-      <p class="tweet-time">${timeAgo}</p>
-      <time class="timeago" datetime="${tweet.created_at}">${tweet.created_at}</time>
-      <p>Posted 2 hours ago</p>
-      <p id="time-ago"></p>
-      
-      <script>
-        const timestamp = new Date(Date.now() - 2 * 60 * 60 * 1000); // 2 hours ago
-        const timeagoInstance = timeago(); // initialize the timeago library
-        document.getElementById("time-ago").textContent = timeagoInstance.format(timestamp);
-
+    <time class="timeago" datetime="${tweet.created_at}">2 hours ago</time>
+    <p id="timeAgo"></p>
+    <script>
+      $(document).ready(function() {
         $('time.timeago').timeago();
+      });
+    </script>
 
-      </script>
-    
-     </section>
+    <script> 
+
+// assuming tweetText contains the tweet text
+var safeHTML = $("<div>").text(tweetText).html();
+$("#tweets-container").append("<div>" + safeHTML + "</div>");
+
+</script>
 
 
+  </section>
 
-     
-    </main>
-  </body>
+</main>
+</body>
 </html>
