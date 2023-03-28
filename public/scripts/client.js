@@ -68,7 +68,7 @@ $(document).ready(function() {
     });
   };
 
-  /// Add event listener for form submission
+ // Add event listener for form submission
 $('form').on('submit', function(event) {
   event.preventDefault(); // prevent default form submission behavior
 
@@ -78,15 +78,21 @@ $('form').on('submit', function(event) {
   // Check if the tweet text is empty or exceeds the maximum character limit
   if (!tweetText) {
     // Show an error message if the tweet text is empty
-    $('#error-message').text('Error! No characters were detected in your tweet.');
+    const $errorMessage = $('#error-message');
+    $errorMessage.text('Error! No characters were detected in your tweet.');
+    $errorMessage.slideDown();
     return;
   } else if (tweetText.length > 140) {
     // Show an error message if the tweet text exceeds the maximum character limit
-    $('#error-message').text('Error! Your tweet is too long.');
+    const $errorMessage = $('#error-message');
+    $errorMessage.text('Error! Your tweet is too long.');
+    $errorMessage.slideDown();
     return;
   } else {
-    // Clear any existing error messages
-    $('#error-message').text('');
+    // Clear any existing error messages and hide the error element
+    const $errorMessage = $('#error-message');
+    $errorMessage.text('');
+    $errorMessage.slideUp();
   }
 
   // Send POST request to server with serialized form data
@@ -106,6 +112,35 @@ $('form').on('submit', function(event) {
     }
   });
 });
+
+
+$(document).ready(function() {
+  // Hide the error message element on page load
+  $('#error-message').hide();
+
+  // Add a click event listener to the tweet-submit button
+  $('#tweet-submit').on('click', function(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Get the tweet text
+    var tweetText = $('#tweet-text').val();
+
+    // Validate the tweet text
+    if (tweetText.trim().length === 0) {
+      // If the tweet text is empty, show the error message element with an appropriate error message
+      $('#error-message').text('Error: Tweet text cannot be empty.').slideDown();
+    } else if (tweetText.length > 140) {
+      // If the tweet text is longer than 140 characters, show the error message element with an appropriate error message
+      $('#error-message').text('Error: Tweet text cannot be longer than 140 characters.').slideDown();
+    } else {
+      // If the tweet text is valid, hide the error message element and submit the form
+      $('#error-message').slideUp();
+      $('#tweet-form').submit();
+    }
+  });
+});
+
 
   // Load initial tweets when the page loads
   loadTweets();
