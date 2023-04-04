@@ -1,5 +1,5 @@
+/* composer.js */
 
-// Stretch: Scroll to-top button
 const topScroll = function() {
   $(document).scroll(function() {
     if ($(window).scrollTop() > 200) {
