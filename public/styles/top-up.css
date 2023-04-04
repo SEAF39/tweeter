@@ -1,0 +1,45 @@
+/* top-up.css */
+
+div.top-up {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
+  width: 2.1em;
+  height: 2.1em;
+  right: 2.1em;
+  bottom: 2.1em;
+  background-color: red;
+  color: white;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+div.to-up:hover {
+  opacity: 1;
+  width: 2.2em;
+  height: 2.2em;
+  right: 1.9em;
+  bottom: 1.9em;
+  font-size: 1.30em;
+}
+
+/* Mobile Styles */
+
+@media only screen and (max-width: 580px) {
+  div.top-up {
+    width: 1.8em;
+    height: 1.8em;
+    right: 1.8em;
+    bottom: 1.8em;
+  }
+
+  div.top-up:hover {
+    width: 1.8em;
+    height: 1.8em;
+    right: 1.8em;
+    bottom: 1.8em;
+    font-size: 1.25em;
+  }
+}
