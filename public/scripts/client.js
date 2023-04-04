@@ -16,27 +16,24 @@ $(document).ready(function() {
     const $tweet = $(`
       <article class="tweet">
         <header>
-          <div class="tweet-author">
+          <div class="left">
             <img src="${tweet.user.avatars}" alt="Profile picture">
-            <div class="tweet-info">
               <h2 class="author-name">${tweet.user.name}</h2>
-              <p class="author-handle">${tweet.user.handle}</p>
             </div>
           </div>
           <div class="tweet-time">
             <time datetime="${tweet.created_at}">${timeago.format(tweet.created_at)}</time>
           </div>
         </header>
-        <div class="tweet-content">
           <p>${escape(tweet.content.text)}</p>
-        </div>
         <footer>
-          <div class="tweet-actions">
-            <a href="#" class="like-action"><i class="fas fa-heart"></i></a>
-            <a href="#" class="retweet-action"><i class="fas fa-retweet"></i></a>
-            <a href="#" class="flag-action"><i class="fas fa-flag"></i></a>
-          </div>
-        </footer>
+        <time class="timeago" datetime="${new Date(tweet.created_at).toISOString()}" style="text-align: left;"></time>
+        <div class="right">
+          <i class="flag fab fa-font-awesome-flag"></i>
+          <i class="retweet fas fa-retweet"></i>
+          <i class="like fas fa-heart"></i>
+        </div>
+      </footer>
       </article>
     `);
 
@@ -74,6 +71,9 @@ $(document).ready(function() {
  $form.on('submit', function(event) {
    event.preventDefault(); // prevent default form submission behavior
  
+   
+   
+   
    // Get the tweet text from the form
    const tweetText = $(this).find('textarea[name="text"]').val();
  
@@ -100,6 +100,8 @@ $(document).ready(function() {
    // Store the form object in a variable
    const $this = $(this);
  
+
+
    // Send POST request to server with serialized form data
    $.ajax({
      url: '/tweets',
@@ -188,3 +190,5 @@ const escape = function (str) {
 
 // Use the escape function to create a safe HTML string containing the user's input
 const safeHTML = `<p>${escape(textFromUser)}</p>`; */
+
+
