@@ -1,7 +1,7 @@
 /* nav.scss */
 
 /* Set the colors as SASS variables */
-$nav-background-color: #4056A1;
+$nav-background-color: #383c49;
 $nav-font-color: #e2cece;
 
 /* Set the height, width, background color, font color, padding, and display style for the navigation bar */
@@ -73,4 +73,43 @@ nav {
       margin-top: 2px;
     }
   }
+
 }
+
+
+/* Define mixin for vertical alignment */
+@mixin align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Define mixin for navbar styles */
+@mixin navbar-style {
+  height: 120px;
+  width: 100vw;
+  background-color: #4056A1;
+  color: #e2cece;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-header .image {
+  @include center;
+  height: 100%;
+}
+
+.right-nav a {
+  @include center;
+  height: 100%;
+}
+
