@@ -25,21 +25,3 @@ div.to-up:hover {
   font-size: 1.30em;
 }
 
-/* Mobile Styles */
-
-@media only screen and (max-width: 580px) {
-  div.top-up {
-    width: 1.8em;
-    height: 1.8em;
-    right: 1.8em;
-    bottom: 1.8em;
-  }
-
-  div.top-up:hover {
-    width: 1.8em;
-    height: 1.8em;
-    right: 1.8em;
-    bottom: 1.8em;
-    font-size: 1.25em;
-  }
-}

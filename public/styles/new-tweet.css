@@ -18,6 +18,7 @@
 .new-tweet form {
   display: flex;
   flex-direction: column;
+   width: 100%;
 }
 
 /* Styles for the labels inside the new tweet form */
