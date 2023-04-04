@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!-- Meta Information -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <!-- Meta Information -->
+
     <title>Tweeter - Home Page</title>
   
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css">
 
     
-
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&amp;family=Source+Sans+Pro:wght@300;600&amp;ital@0;1&amp;display=swap">
   
@@ -32,8 +31,9 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js">
-    </script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.timeago.js"></script>
+    <script type="text/javascript" src="/scripts/toggle.js"></script>
   </head>
   <body>
 
@@ -41,12 +41,14 @@
     <nav>
       <span class="logo-page" >tweeter</span>
       <div class="right-nav">
-        <span class="new" ><b>Write</b> a new tweet</span>
-        <center><i class="fas fa-angle-double-down"></i></center>
+        <span class=".new-tweet" ><b>Write</b> a new tweet</span>
+        <a href="#button" id="button">
+          <center><i class="fas fa-angle-double-down"></i></center>
+      </a>
       </div>
-    </nav>
-    <div class="responsive-container">
+    </nav>    
 
+    <div class="responsive-container">
     <!-- top-header section -->
     <header class="top-header">
       <div class="image">
@@ -59,7 +61,11 @@
 
 <!-- Page-specific (main) content here -->
 <main class="container">
-  <div id="error-message"></div>
+
+
+  <div id="error-message">
+    This is an error message.
+  </div>
   <section class="new-tweet">
     <h2>Compose Tweet</h2>
     <form id="new-tweet-form">
@@ -76,6 +82,10 @@
 
       <!-- tweet-container -->
       <section id="tweets-container">
+
+
+
+        
       </section>
     </main>
   </body>
