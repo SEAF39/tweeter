@@ -70,24 +70,3 @@ article.tweet:hover footer .right i {
   color: #4056a1;
 }
 
-.reply-action i,
-.retweet-action i,
-.like-action i,
-.flag-action i {
-  margin-left: 5px;
-  margin-right: 0;
-}
-
-article.tweet .content {
-  margin-left: auto;
-}
-
-.tweet-text {
-  text-align: right;
-}
-
-
-.tweet-footer {
-  display: flex;
-  justify-content: flex-end;
-}
