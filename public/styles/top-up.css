@@ -1,5 +1,4 @@
-/* top-up.css */
-
+/* top-up.scss */
 div.top-up {
   position: fixed;
   display: flex;
@@ -22,6 +21,5 @@ div.to-up:hover {
   height: 2.2em;
   right: 1.9em;
   bottom: 1.9em;
-  font-size: 1.30em;
+  font-size: 1.3em;
 }
-

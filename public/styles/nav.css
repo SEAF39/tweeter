@@ -1,5 +1,5 @@
-/* nav.css */
-
+/* nav.scss */
+/* Set the colors as SASS variables */
 /* Set the height, width, background color, font color, padding, and display style for the navigation bar */
 nav {
   height: 120px;
@@ -10,40 +10,35 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Set the font family and font size for the logo */
+  /* Set the float, display style, flex direction, and gap for the right side of the navigation bar */
+  /* Set the font family for all span elements within the nav element */
+  /* Define the MoveUpDown animation */
+  /* Apply the MoveUpDown animation to child <i> elements of <nav> */
 }
-
-/* Set the font family and font size for the logo */
 nav .logo-page {
-  font-family: 'Bungee', sans-serif;
-  font-size: 2.50em;
+  font-family: "Bungee", sans-serif;
+  font-size: 2.5em;
 }
-
-/* Set the float, display style, flex direction, and gap for the right side of the navigation bar */
-.nav-right {
+nav .nav-right {
   float: right;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5em;
+  /* Set the font size and hover effect for elements in the right side of the navigation bar */
 }
-
-/* Set the font size and hover effect for elements in the right side of the navigation bar */
-nav .right-nav:hover {
+nav .nav-right .right-nav:hover {
   font-size: 1.1em;
   cursor: pointer;
 }
-
-/* Set the font family for all span elements within the nav element */
 nav span {
-  font-family: 'Bungee', sans-serif;
+  font-family: "Bungee", sans-serif;
+  /* Set the font size for elements with the .new class */
 }
-
-/* Set the font size for elements with the .new class */
-nav .new {
+nav span.new {
   font-size: 1.25em;
 }
-
-/* Define the MoveUpDown animation */
 @keyframes MoveUpDown {
   from, to {
     transform: translateY(0);
@@ -52,23 +47,17 @@ nav .new {
     transform: translateY(10px);
   }
 }
-
-/* Apply the MoveUpDown animation to child <i> elements of <nav> */
 nav i {
   color: rgb(243, 16, 16);
   animation: MoveUpDown 2s linear infinite;
+  /* Apply the MoveUpDown animation to elements with the .bounce class */
+  /* Set the font size, color, and margin for the angle-double-down icon */
 }
-
-/* Apply the MoveUpDown animation to elements with the .bounce class */
-.bounce {
+nav i.bounce {
   animation: MoveUpDown 1s linear infinite;
 }
-
-/* Set the font size, color, and margin for the angle-double-down icon */
-.fa-angle-double-down {
+nav i.fa-angle-double-down {
   font-size: 1.2em;
   color: #FFFFFF;
   margin-top: 2px;
 }
-
-

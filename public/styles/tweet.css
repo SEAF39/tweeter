@@ -1,5 +1,4 @@
-/* tweet.css */
-
+/* tweet.scss */
 /* Tweet component styling */
 section.tweets {
   display: flex;
@@ -48,7 +47,7 @@ article.tweet header .left span {
 }
 
 article.tweet header .handle {
-  color: #9993b2;  
+  color: #9993b2;
 }
 
 article.tweet footer {
@@ -69,4 +68,3 @@ article.tweet footer .right i {
 article.tweet:hover footer .right i {
   color: #4056a1;
 }
-

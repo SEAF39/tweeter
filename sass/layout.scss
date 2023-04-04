@@ -1,14 +1,13 @@
 /* layout.scss */
+
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro&display=swap");
-html {
+ html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -16,6 +15,7 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -25,15 +25,18 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
 /* add an external fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro&display=swap');
+
 /* Set the font family for the entire body of the HTML document */
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* Set the font family for all span elements within the nav element */
 nav span {
-  font-family: "Bungee", sans-serif;
+  font-family: 'Bungee', sans-serif;
 }
 
 /* Set the margins and display style for the main content section of the HTML document */

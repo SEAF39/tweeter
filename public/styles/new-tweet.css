@@ -1,5 +1,4 @@
-/* new-tweet.css */
-
+/* new-tweet.scss */
 /* Styles for the container of a new tweet */
 .new-tweet {
   border: 1px solid #ccc;
@@ -18,7 +17,7 @@
 .new-tweet form {
   display: flex;
   flex-direction: column;
-   width: 100%;
+  width: 100%;
 }
 
 /* Styles for the labels inside the new tweet form */

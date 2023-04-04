@@ -1,4 +1,5 @@
 /* header.scss */
+
 /* Define the top-header class with new feature */
 .top-header {
   height: 400px;
@@ -12,7 +13,9 @@
   background-image: url("../images/fabric-light.png");
   margin-top: 60px;
   text-align: center;
+
   /* New feature: add a border with rounded corners */
   border: 2px solid #f4e9e9;
   border-radius: 10px;
 }
+
