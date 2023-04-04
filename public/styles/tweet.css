@@ -1,5 +1,4 @@
 /* tweet.scss  */
-/* Tweet component styling */
 section.tweets {
   display: flex;
   flex-direction: column;

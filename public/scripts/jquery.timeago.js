@@ -1,7 +1,5 @@
 /* jquery.timeago.js */
 
-
-// Wait for the document to be ready before running any jQuery code
 $(document).ready(function() {
   $('time.timeago').timeago();
 

@@ -16,6 +16,4 @@ const topScroll = function() {
   });
 };
 
-
-
  $("div.top-up").hide();
