@@ -1,3 +1,5 @@
+/* toggle.js */
+
 $(document).ready(function() {
   let toggle = false;
   $(".new-tweet").hide();
