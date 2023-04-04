@@ -5,7 +5,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
+ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -26,10 +26,9 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- /* add an external fonts
-  */
+/* add an external fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro&display=swap');
 
-  
 /* Set the font family for the entire body of the HTML document */
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -47,13 +46,3 @@ main {
   display: flex;
   flex-direction: column;
 }
-
-/* Responsive container with 5em top margin and flexbox layout */
-.responsive-container {
-  margin-top: 5em;
-  margin-left: 2em;
-  display: flex;
-  flex-direction: row;
-}
-
-
