@@ -21,7 +21,9 @@ $(document).ready(function() {
             <time datetime="${tweet.created_at}">${timeago.format(tweet.created_at)}</time>
           </div>
         </header>
-          <p>${escape(tweet.content.text)}</p>
+          <p>
+          <b>${tweet.content.text}</b>
+          </p>
         <footer>
         <time class="timeago" datetime="${new Date(tweet.created_at).toISOString()}" style="text-align: left;"></time>
         <div class="right">
@@ -44,6 +46,40 @@ $(document).ready(function() {
       $tweetsContainer.append($tweet);
     });
   };
+
+
+
+
+  $(document).ready(function() {
+    // ... other code for setting up the page
+  
+    $('form').submit(function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+  
+      // Get the form data
+      const formData = $(this).serialize();
+  
+      // Submit the form data using AJAX
+      $.post('/tweets', formData)
+        .then(function(response) {
+          // Clear the textarea
+          $('textarea').val('');
+  
+          // Create the new tweet element and append it to the top of the container
+          const $newTweet = createTweetElement(response);
+          $('#tweets-container').prepend($newTweet);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    });
+  });
+  
+
+
+
+
 
   const loadTweets = function() {
     $.ajax({
