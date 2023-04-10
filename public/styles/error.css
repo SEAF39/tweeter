@@ -6,13 +6,13 @@
   font-weight: bold;
   font-style: italic;
   padding: 10px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  max-width: 400px;
   text-align: center;
+  color: #ff0000;
+  margin-bottom: 8px;
 }
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+}
+

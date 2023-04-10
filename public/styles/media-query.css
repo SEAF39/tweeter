@@ -1,122 +1,29 @@
-/*  media-query.css  */
+@media only screen and (min-width: 769px) {
+  .top-header-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
 
-/* mobile phone */
-@media only screen and (max-width:419px) {
+  .container {
+    width: 100%;
+  }
+
+  .top-header {
+    width: 50%
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
   nav {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .title {
-    font-size: 20px;
-  }
-  .newButton {
-    margin-top:25px
-  }
-  .newButton span {
-    font-size: 0.7rem;
-  }
-  .newButton img {
-    width: 35px;
-    height: 20px;
-  }
-  .figures img {
-    width: 60px;
-    height: 60px;
-  }
-  .figures h3 {
-    font-size:0.65rem;
-  }
-  .red-header {
-    height: 100px;
+    background-color: #352709;
   }
   .container {
-    font-size:0.5rem;
+    margin-top: 16px;
   }
-  .tweets img {
-    height: 25px;
-    width: 25px;
-  }
-  .tweets footer p {
-    font-size: 10px;
-  }
-  .tweets .icons i {
-    font-size: 15px;
-  }
-}
-@media only screen and (min-width:420px) and (max-width:767px){
-  .title {
-    font-size: 25px;
-  }
-  .newButton span {
-    font-size: 0.8rem;
-  }
- 
-  .container{
-    font-size: 0.7rem;
-  }
-  .newButton img {
-    width: 40px;
-    height: 25px;
-  }
-  .tweets footer p {
-    font-size: 13px;
-  }
-  .tweets .icons i {
-    font-size: 18px;
-  }
-}
-/* tablet */
-@media only screen and (min-width:768px){
-  .space-keeper {
-    width:25%;
-    float:left;
-  }
-  .red-header {
-    position: fixed;
-    width:25%;
-    height:100vh;
-    justify-content: center;
-  }
-  .container {
-    margin-top: 120px;
-    width:75%;
-    float:right;
-    line-height:100%;
-  }
-  .tweet-container {
-    width:80%;
-  }
-  .container{
-    font-size: 0.9rem;
-  }
-  .title {
-    font-size: 1.5rem;
-  }
-  .newButton span {
-    font-size: 0.9rem;
-  }
-  .figures img {
-    width: 170px;
-    height: 170px;
-  }
-}
-
-/* desktop */
-
-@media only screen and (min-width:1024px) {
-
-  .tweet-container {
-    width:90%;
-  }
-  .newButton span {
-    font-size:1.1rem;
-  }
-  .figures img {
-    width: 180px;
-    height: 180px;
-  }
-  .figures h3 {
-    font-size: 1.6rem;
-  }
+  
 }
